@@ -89,8 +89,8 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-var io = require('socket.io')(server);
-var os = require('os');
+const io = require('socket.io')(server);
+const os = require('os');
 
 function emitServerStatus(socket) {
   socket.emit('server-status', { loadavg: os.loadavg() });
