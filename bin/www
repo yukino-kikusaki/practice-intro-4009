@@ -89,7 +89,7 @@ function onListening() {
   debug('Listening on ' + bind);
 }
 
-const os = require('os');
+const os = require('node:os');
 const { Server } = require('socket.io');
 const io = new Server(server);
 
