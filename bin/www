@@ -95,9 +95,9 @@ const io = new Server(server);
 
 function emitServerStatus(socket) {
   socket.emit('server-status', { loadavg: os.loadavg() });
-  console.log('server-status event emitted.');
 }
 
 io.on('connection', function (socket) {
   setInterval(emitServerStatus, 10, socket);
+  console.log('接続がありました！');
 });
