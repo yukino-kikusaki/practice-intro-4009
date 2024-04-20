@@ -17,8 +17,8 @@ movingButton.on("click", () => {
 
 const loadavg = $("#loadavg");
 
-import io from 'socket.io-client';
-const socket = io('http://localhost:3000');
-socket.on('server-status', (data) => {
+import io from "socket.io-client";
+const socket = io("http://localhost:3000");
+socket.on("server-status", (data) => {
   loadavg.text(data.loadavg.toString());
 });

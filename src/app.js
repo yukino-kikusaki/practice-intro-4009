@@ -15,7 +15,7 @@ const layout = require("./layout");
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const photosRouter = require("./routes/photos");
-const serverStatusRouter = require("./routes/server-status");
+const serverStatusRouter = require('./routes/server-status');
 
 const app = new Hono();
 
@@ -115,15 +115,15 @@ const server = serve({
   port,
 });
 
-const os = require('node:os');
-const { Server } = require('socket.io');
+const os = require("node:os");
+const { Server } = require("socket.io");
 const io = new Server(server);
 
 function emitServerStatus(socket) {
-  socket.emit('server-status', { loadavg: os.loadavg() });
+  socket.emit("server-status", { loadavg: os.loadavg() });
 }
 
-io.on('connection', (socket) => {
+io.on("connection", (socket) => {
   setInterval(emitServerStatus, 10, socket);
-  console.log('接続がありました！');
+  console.log("接続がありました！");
 });
